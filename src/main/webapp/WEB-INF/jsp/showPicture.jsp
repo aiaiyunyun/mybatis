@@ -51,7 +51,7 @@
 <body onload="setInterval('scroll()',second)" class="fixed-sidebar full-height-layout gray-bg">
 <div id="wrapper" style="margin: 0 auto">
   <div style="text-align: center;height: 100%;width: 100%">
-    <h2>——${nbsq}4G流量实时分析——</h2>
+    <h2>——${name}4G流量实时分析——</h2>
   </div>
 
     <%--//这是左侧--%>
@@ -87,7 +87,7 @@
     </div>
     <%--//这是中间--%>
     <div style="width: 36%;float: left;height: 6 70px;margin-right: -1px;" class ="div1">
-      <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/user/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
+      <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
     </div>
     <%--//这是右侧--%>
     <div style="width: 31%;float: left;margin-left: 2em">

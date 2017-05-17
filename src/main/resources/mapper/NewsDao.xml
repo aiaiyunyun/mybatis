@@ -2,14 +2,95 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
 <mapper namespace="org.hero.dao.NewsDao">
-
+    <resultMap type="Hierarchy" id="Hierarchy">
+        <id column="HID" property="HID"/>
+        <result column="numberH" property="numberH"  />
+        <result column="nameH" property="nameH" />
+        <result column="HHID" property="HHID" />
+    </resultMap>
     <!-- 参数  #{parameter}-->
     <!-- 主键冲突时不报错 返回0 insert ignore into-->
-
     <select id="findAll" resultType="News">
         select * from news
     </select>
+    <!--保存所有信息-->
+    <insert id="saveHierarchy" parameterType="org.hero.entity.Hierarchy">
+        insert into dbo.hierarchy(
+           HID,
+           CellName,
+           eNodeBName,
+           eNodeBID,
+           CellID,
+           Latitude,
+           Longitude,
+           Azimuth
+            )values(
+            #{HID},
+            #{CellName},
+            #{eNodeBName},
+            #{eNodeBID},
+            #{CellID},
+            #{Latitude},
+            #{Longitude},
+            #{Azimuth}
+            )
+    </insert>
+    <!--保存基站信息-->
+    <insert id="saveStationInformation" parameterType="org.hero.entity.StationInformation">
+        insert into dbo.stationInformation(
+        id,
+        ENodeBID,
+        Longitude,
+        Latitude,
+        Azimuth,
+        Supplier
+        )values(
+        #{id},
+        #{ENodeBID},
+        #{Longitude},
+        #{Latitude},
+        #{Azimuth},
+        #{Supplier}
+        )
+    </insert>
 
+    <!--保存小区信息-->
+    <insert id="saveCommunityInformation" parameterType="org.hero.entity.CommunityInformation">
+        insert into dbo.communityInformation(
+        id,
+        CellID,
+        Longitude,
+        Latitude,
+        SectorID,
+        PCI,
+        Azimuth
+        )values(
+        #{id},
+        #{CellID},
+        #{Longitude},
+        #{Latitude},
+        #{SectorID},
+        #{PCI},
+        #{Azimuth}
+        )
+    </insert>
+    <select id="findAllHierarchy" resultType="Hierarchy">
+        select * from hierarchy
+    </select>
+    <select id="findAllNum"  resultType="int" >
+        select COUNT (*) from hierarchy
+    </select>
+    <select id="findAllNumStationInformation"  resultType="int" >
+        select COUNT (*) from stationInformation
+    </select>
+    <select id="findAllNumCommunityInformation"  resultType="int" >
+        select COUNT (*) from communityInformation
+    </select>
+    <select id="findOnlyNumStationInformation" resultType="int" parameterType="string">
+        select COUNT (*) from stationInformation WHERE ENodeBID = #{num}
+    </select>
+    <select id="findOnlyNumCommunityInformation" resultType="int" parameterType="string">
+        select COUNT (*) from communityinformation WHERE NumberH = #{num}
+    </select>
 </mapper>

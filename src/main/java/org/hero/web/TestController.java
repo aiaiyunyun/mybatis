@@ -1,5 +1,6 @@
 package org.hero.web;
 
+import org.hero.entity.Hierarchy;
 import org.hero.entity.News;
 import org.hero.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +20,20 @@ public class TestController {
     private UserService userService;
 
     @RequestMapping("/ceshi")
-    public String ceshi(Model model) {
+    public String ceshi(Model model){
         List<News> list = userService.getNewsList();
-        model.addAttribute("id", "woowoowow");
+        model.addAttribute("id","woowoowow");
         return "test";
     }
     @RequestMapping("/bbs")
     public String bbs(Model model) {
-        List<News> list = userService.getNewsList();
-        model.addAttribute("id", "woowoowow");
+//        List<Hierarchy> list = userService.findAllHierarchy();
+//        for(Hierarchy hierarchy:list){
+          /* if(hierarchy.getHHID()==1){
+               model.addAttribute("name", hierarchy.getNameH());
+           }*/
+//        }
+        model.addAttribute("name","路南区");
         return "showPicture";
     }
 }
