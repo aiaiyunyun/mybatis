@@ -22,9 +22,11 @@ public class TestController {
     @RequestMapping("/ceshi")
     public String ceshi(Model model){
         List<News> list = userService.getNewsList();
+        System.out.println(list);
         model.addAttribute("id","woowoowow");
         return "test";
     }
+
     @RequestMapping("/bbs")
     public String bbs(Model model) {
 //        List<Hierarchy> list = userService.findAllHierarchy();

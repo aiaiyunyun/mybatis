@@ -18,7 +18,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private NewsDao newsDao;
 
-
     public List<News> getNewsList() {
         return newsDao.findAll();
     }
