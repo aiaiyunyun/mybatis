@@ -172,38 +172,11 @@
         heatmapOverlay.show();
     });
 </script>
-<script language="JavaScript" type="text/javascript">
-//    var initializationTime=(new Date()).getTime();
-//    var str = "123456";
-//    var seq = 0;
-//    var second=1000; //间隔时间1秒钟
-//    function scroll() {
-////        msg = str.substring(0, seq+1);
-//        msg = seq;
-//        document.getElementById('num1').innerHTML = msg;
-//        document.getElementById('num2').innerHTML = msg;
-//        seq++;
-//        //        if (seq >= str.length) seq = 0;
-//        var now=new Date();
-//        var year=now.getYear()+1900;
-//        var month=now.getMonth();
-//        var day=now.getDate();
-//        var hours=now.getHours();
-//        var minutes=now.getMinutes();
-//        var seconds=now.getSeconds();
-//        document.all.show.innerHTML=""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"";
-//        //一秒刷新一次显示时间
-//        var timeID=setTimeout(showLeftTime,1000);
-
-//    }
-
-
-</script>
 <script>
   $(function () {
       //在这添加方法
 
-      window.setInterval(getList,5000);
+      window.setInterval(getList,1000);
       //  getList();
   })
 //获得页面数据并填页面
@@ -211,20 +184,15 @@
 
       $.post("/list",function (data) {
             if(data!=null){
-              $("#my1").html(data[0].sumUsers)
-                $("#my2").html(data[0].protocolFlow)
+              $("#my1").html(data[0][0].sumUsers);
+                $("#my2").html(data[0][0].protocolFlow);
+                $("#show").html(data[1]);
             }else{
                 alert("请求失败或暂无数据")
             }
-
           }
       )
   }
-
-
-
 </script>
-
 </body>
-
 </html>

@@ -102,6 +102,11 @@
         ORDER BY [Time] DESC
     </select>
 
-
+    <!--查询小区的流量和人数-->
+    <select id="selectNum" resultType="UploadData">
+        SELECT  SumUsers,SumFlow,Longitude,Latitude
+         FROM uploadData uda
+         inner join dbo.communityInformation com on com.CellID = uda.CellID
+    </select>
 
 </mapper>

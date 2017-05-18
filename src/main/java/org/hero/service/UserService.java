@@ -26,5 +26,5 @@ public interface UserService {
 
 
     List<QunSummary> findSix();
-
+    List<UploadData> selectNum();
 }

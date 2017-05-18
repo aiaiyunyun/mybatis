@@ -27,4 +27,5 @@ public interface NewsDao {
     //查询6个成功率分析
     List<QunSummary> findSix();
 
+    List<UploadData> selectNum();
 }

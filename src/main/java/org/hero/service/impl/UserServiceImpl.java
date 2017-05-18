@@ -46,4 +46,8 @@ public class UserServiceImpl implements UserService {
         return newsDao.findSix();
     }
 
+    public List<UploadData> selectNum() {
+        return newsDao.selectNum();
+    }
+
 }

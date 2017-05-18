@@ -9,6 +9,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -66,7 +69,25 @@ public class TestController {
     @RequestMapping("/list")
     public List<QunSummary> list(ModelMap modelMap) {
         List<QunSummary> list = userService.findSix();
-        return list;
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = sdf.format(date);
+        ArrayList list0  = new ArrayList();
+        list0.add(list);
+        list0.add(time);
+        return list0;
     }
+//    @ResponseBody
+/*    @RequestMapping("/mlist")
+    public List<QunSummary> list(ModelMap modelMap) {
+        List<QunSummary> list = userService.findSix();
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        String time = sdf.format(date);
+        ArrayList list0  = new ArrayList();
+        list0.add(list);
+        list0.add(time);
+        return list0;
+    }*/
 
 }
