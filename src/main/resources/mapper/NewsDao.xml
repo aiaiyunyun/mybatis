@@ -97,7 +97,7 @@
 
 
     <select id="findSix" resultType="QunSummary">
-       SELECT TOP 7 *
+       SELECT TOP 1 *
         FROM qunSummary
         ORDER BY [Time] DESC
     </select>
