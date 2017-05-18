@@ -72,6 +72,13 @@
     <select id="findAllHierarchy" resultType="Hierarchy">
         select * from hierarchy
     </select>
+    <select id="findAllCommunityInformation" resultType="CommunityInformation">
+        select  * from  communityInformation
+    </select>
+    <select id="findAllStationInformation" resultType="StationInformation">
+        select Distinct stf.*,hi.eNodeBName from StationInformation stf
+        inner join hierarchy hi on stf.ENodeBID = hi.eNodeBID
+    </select>
     <select id="findAllNum"  resultType="int" >
         select COUNT (*) from hierarchy
     </select>
@@ -87,4 +94,14 @@
     <select id="findOnlyNumCommunityInformation" resultType="int" parameterType="string">
         select COUNT (*) from communityinformation WHERE NumberH = #{num}
     </select>
+
+
+    <select id="findSix" resultType="QunSummary">
+       SELECT TOP 7 *
+        FROM qunSummary
+        ORDER BY [Time] DESC
+    </select>
+
+
+
 </mapper>

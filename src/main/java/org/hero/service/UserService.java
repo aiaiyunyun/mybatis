@@ -1,7 +1,6 @@
 package org.hero.service;
 
-import org.hero.entity.Hierarchy;
-import org.hero.entity.News;
+import org.hero.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,7 +14,8 @@ public interface UserService {
     List<News> getNewsList();
 
     List<Hierarchy> findAllHierarchy();
-
+    List<StationInformation> findAllStationInformation();
+    List<CommunityInformation> findAllCommunityInformation();
     void saveHierarchy(Hierarchy hierarchy);
 
     /**
@@ -23,5 +23,8 @@ public interface UserService {
      * @return
      */
     Integer findAllNum();
+
+
+    List<QunSummary> findSix();
 
 }

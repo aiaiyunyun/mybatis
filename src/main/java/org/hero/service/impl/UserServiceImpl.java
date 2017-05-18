@@ -1,8 +1,7 @@
 package org.hero.service.impl;
 
 import org.hero.dao.NewsDao;
-import org.hero.entity.Hierarchy;
-import org.hero.entity.News;
+import org.hero.entity.*;
 import org.hero.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,12 +26,24 @@ public class UserServiceImpl implements UserService {
         return newsDao.findAllHierarchy();
     }
 
+    public List<StationInformation> findAllStationInformation() {
+        return newsDao.findAllStationInformation();
+    }
+
+    public List<CommunityInformation> findAllCommunityInformation() {
+        return newsDao.findAllCommunityInformation();
+    }
+
     public void saveHierarchy(Hierarchy hierarchy) {
         newsDao.saveHierarchy(hierarchy);
     }
 
     public Integer findAllNum() {
         return newsDao.findAllNum();
+    }
+
+    public List<QunSummary> findSix() {
+        return newsDao.findSix();
     }
 
 }

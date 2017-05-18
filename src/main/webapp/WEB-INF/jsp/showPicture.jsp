@@ -34,7 +34,7 @@
       font-size: 12px;
     }
     div{
-      border:1px solid greenyellow;
+      border:1.3px solid #212121;
       border-style:inset
       /*background:#f0fbeb*/
     }
@@ -54,70 +54,70 @@
     <h2>——${name}4G流量实时分析——</h2>
   </div>
 
-    <%--//这是左侧--%>
-    <div style="width: 31%;height:100%;float: left;" id="leftfont">
-      <div  style="overflow: hidden;margin-bottom: 0px">
-        <div style="width: 100%;height: 58%;position: relative">
-            <span style="font-size: 1.5em;">4G实时用户数：</span>
-            <span id="num1" style="font-size: 2em;color: white">0</span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <span style="font-size: 1.5em;">4G实时流量：</span>
-          <span id="num2" style="font-size: 2em;color: white">0</span>
-          <div id="left1" style="width: 100%;height:200%;float: left;background-color: white;">
-          </div>
-        </div>
-      </div>
-      <div  style="overflow: hidden;">
-        <div style="width: 100%;height: 100%;position: relative;">
-          <div id="left2" style="width: 50%;height:200%;float: left;background-color: white">
-          </div>
-          <div id="left5" style="width: 49%;height:200%;float: left;background-color: white;">
-          </div>
-
-        </div>
-      </div>
-      <div  style="overflow: hidden" class ="div1">
-        <div style="width: 100%;height: 150%;position: relative;">
-          <div id="left4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-          </div>
-          <div id="left3" style="width: 49%;height:200%;float: right;background-color: white">
-          </div>
+  <%--//这是左侧--%>
+  <div style="width: 31%;height:100%;float: left;" id="leftfont">
+    <div  style="overflow: hidden;margin-bottom: 0px">
+      <div style="width: 100%;height: 58%;position: relative">
+        <span style="font-size: 1.5em;">4G实时用户数：</span>
+        <span id="num1" style="font-size: 2em;color: white">0</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="font-size: 1.5em;">4G实时流量：</span>
+        <span id="num2" style="font-size: 2em;color: white">0</span>
+        <div id="left1" style="width: 100%;height:200%;float: left;background-color: white;">
         </div>
       </div>
     </div>
-    <%--//这是中间--%>
-    <div style="width: 36%;float: left;height: 670px;margin-right: -1px;" class ="div1">
-      <a href="" style="color: white">用户</a><a href="" style="color: white">4G流量</a>
-      <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
-    </div>
-    <%--//这是右侧--%>
-    <div style="width: 31%;float: left;margin-left: 2em">
+    <div  style="overflow: hidden;">
+      <div style="width: 100%;height: 100%;position: relative;">
+        <div id="left2" style="width: 50%;height:200%;float: left;background-color: white">
+        </div>
+        <div id="left5" style="width: 49%;height:200%;float: left;background-color: white;">
+        </div>
 
-      <div class ="div1"  style="overflow: hidden;border:2px solid;border-color: greenyellow" >
-        <span style="font-size: 1.5em;">系统时间：</span><label id="show">显示时间的位置</label>
-        <div style="width: 100%;height: 100%;position: relative;">
-          <div id="right6" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-          </div>
-          <div id="right1" style="width: 49%;height:200%;float: right;background-color: white">
-          </div>
+      </div>
+    </div>
+    <div  style="overflow: hidden" class ="div1">
+      <div style="width: 100%;height: 150%;position: relative;">
+        <div id="left4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="left3" style="width: 49%;height:200%;float: right;background-color: white">
         </div>
       </div>
-      <div class ="div1"  style="overflow: hidden;" >
-        <div style="width: 100%;height: 100%;position: relative">
-          <div id="right2" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-          </div>
-          <div id="right5" style="width: 49%;height:200%;float: right;background-color: white">
-          </div>
+    </div>
+  </div>
+  <%--//这是中间--%>
+  <div style="width: 34%;float: left;height: 650px;margin-right: -1px;" class ="div1">
+    <button id="btn1"  style="">用户</button><button id="btn2" style="">4G流量</button>
+    <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
+  </div>
+  <%--//这是右侧--%>
+  <div style="width: 31%;float: left;margin-left: 2em">
+
+    <div class ="div1"  style="overflow: hidden;border:2px solid;border-color: #222222;" >
+      <span style="font-size: 1.5em;">系统时间：</span><label id="show">显示时间的位置</label>
+      <div style="width: 100%;height: 100%;position: relative;">
+        <div id="right6" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right1" style="width: 49%;height:200%;float: right;background-color: white">
         </div>
       </div>
-      <div class ="div1"  style="overflow: hidden;" >
-        <div style="width: 100%;height: 100%;position: relative">
-          <div id="right4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-          </div>
-          <div id="right3" style="width: 49%;height:200%;float: right;background-color: white;">
-          </div>
+    </div>
+    <div class ="div1"  style="overflow: hidden;" >
+      <div style="width: 100%;height: 100%;position: relative">
+        <div id="right2" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right5" style="width: 49%;height:200%;float: right;background-color: white">
         </div>
       </div>
+    </div>
+    <div class ="div1"  style="overflow: hidden;" >
+      <div style="width: 100%;height: 100%;position: relative">
+        <div id="right4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right3" style="width: 49%;height:200%;float: right;background-color: white;">
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script src="<%=path%>/static/js/echarts.min.js"></script>
@@ -175,28 +175,33 @@
     var initializationTime=(new Date()).getTime();
     var str = "123456";
     var seq = 0;
-    var second=1000*60*15; //间隔时间1秒钟
+    var second=1000; //间隔时间1秒钟
     function scroll() {
 //        msg = str.substring(0, seq+1);
         msg = seq;
         document.getElementById('num1').innerHTML = msg;
         document.getElementById('num2').innerHTML = msg;
         seq++;
-//        if (seq >= str.length) seq = 0;
-
-
-            var now=new Date();
-            var year=now.getYear()+1900;
-            var month=now.getMonth();
-            var day=now.getDate();
-            var hours=now.getHours();
-            var minutes=now.getMinutes();
-            var seconds=now.getSeconds();
-            document.all.show.innerHTML=""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"";
-//一秒刷新一次显示时间
-            var timeID=setTimeout(showLeftTime,1000);
+        //        if (seq >= str.length) seq = 0;
+        var now=new Date();
+        var year=now.getYear()+1900;
+        var month=now.getMonth();
+        var day=now.getDate();
+        var hours=now.getHours();
+        var minutes=now.getMinutes();
+        var seconds=now.getSeconds();
+        document.all.show.innerHTML=""+year+"年"+month+"月"+day+"日 "+hours+":"+minutes+":"+seconds+"";
+        //一秒刷新一次显示时间
+        var timeID=setTimeout(showLeftTime,1000);
     }
+    $.ajax({
+        type:"POST",
+        url:"Venue.aspx?act=init",
+        dataType:"html",
+        success:function(result){   //function1()
 
+        }
+    });
 </script>
 </body>
 
