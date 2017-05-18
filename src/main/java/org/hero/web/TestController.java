@@ -19,12 +19,12 @@ public class TestController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/ceshi")
+    @RequestMapping("/showMiddle")
     public String ceshi(Model model){
-        List<News> list = userService.getNewsList();
-        System.out.println(list);
-        model.addAttribute("id","woowoowow");
-        return "test";
+//        List<News> list = userService.getNewsList();
+//        System.out.println(list);
+//        model.addAttribute("id","woowoowow");
+        return "showMiddle";
     }
 
     @RequestMapping("/bbs")

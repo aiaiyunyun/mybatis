@@ -86,7 +86,8 @@
       </div>
     </div>
     <%--//这是中间--%>
-    <div style="width: 36%;float: left;height: 6 70px;margin-right: -1px;" class ="div1">
+    <div style="width: 36%;float: left;height: 670px;margin-right: -1px;" class ="div1">
+      <a href="" style="color: white">用户</a><a href="" style="color: white">4G流量</a>
       <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
     </div>
     <%--//这是右侧--%>
@@ -174,7 +175,7 @@
     var initializationTime=(new Date()).getTime();
     var str = "123456";
     var seq = 0;
-    var second=1000; //间隔时间1秒钟
+    var second=1000*60*15; //间隔时间1秒钟
     function scroll() {
 //        msg = str.substring(0, seq+1);
         msg = seq;
