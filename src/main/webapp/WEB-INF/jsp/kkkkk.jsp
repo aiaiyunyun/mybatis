@@ -37,9 +37,9 @@
     span{
       font-size: 12px;
     }
-    div{
-      border:1.3px solid #212121;
-      border-style:inset
+    .div1{
+      border:0.3px  plum;
+      border-style:inset;
       /*background:#f0fbeb*/
     }
     /*.div1{
@@ -52,81 +52,67 @@
   </style>
 </head>
 
-<body onload="setInterval('scroll()',second)" class="fixed-sidebar full-height-layout gray-bg">
-<div id="wrapper" style="margin: 0 auto;position: relative">
-  <div style="text-align: center;height: 100%;width: 100%">
-    <h2>——${name}4G流量实时分析——</h2>
+<body onload="setInterval('scroll()',second)">
+<div class="container" style="width: 100%;height: 768px">
+  <div class="row div1">
+    <div class="col-md-12 div1" style="text-align: center"> <h2>——${name}4G流量实时分析——</h2></div>
   </div>
-
-  <%--//这是左侧--%>
-  <div style="width: 31%;height:100%;float: left;" id="leftfont">
-    <div  style="overflow: hidden;margin-bottom: 0px">
-      <div style="width: 100%;height: 58%;position: relative">
-        <span style="font-size: 1.5em;">4G实时用户数：</span>
-        <span id="my1" style="font-size: 2em;color: white">0</span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="font-size: 1.5em;">4G实时流量：</span>
-        <span id="my2" style="font-size: 2em;color: white">0</span>
-        <div id="left1" style="width: 100%;height:200%;float: left;background-color: white;">
+  <div class="row div1">
+    <div class="col-md-4">
+      <div class="row" >
+        <div class="col-md-6 div1" style="text-align: center">
+          <span style="font-size: 1.5em;">4G实时用户数：</span>
+          <span id="my1" style="font-size: 1.5em;color: white">0</span>
+        </div>
+        <div class="col-md-6 div1" style="text-align: center">
+          <span style="font-size: 1.5em;">4G实时流量：</span>
+          <span id="my2" style="font-size: 1.5em;color: white">0</span>
+        </div>
+      </div>
+      <div class="row div1"  style="height: 256px">
+        <div id="left1"  class="col-md-12 div1">
+        </div>
+      </div>
+      <div class="row div1 "  style="height: 256px">
+        <div id="left2"  class="col-md-6 div1">
+        </div>
+        <div id="left5" class="col-md-6 div1">
+        </div>
+      </div>
+      <div class="row div1"  style="height: 256px">
+        <div id="left4"  class="col-md-6 div1">
+        </div>
+        <div id="left6"  class="col-md-6 div1">
         </div>
       </div>
     </div>
-    <div  style="overflow: hidden;">
-      <div style="width: 100%;height: 100%;position: relative;">
-        <div id="left2" style="width: 50%;height:200%;float: left;background-color: white">
-        </div>
-        <div id="left5" style="width: 49%;height:200%;float: left;background-color: white;">
-        </div>
-
+    <div class="col-md-4" >
+      <div class="row div1">
+        <iframe class="J_iframe" name="iframe0" width="200%" height="805px" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
       </div>
     </div>
-    <div  style="overflow: hidden" class ="div1">
-      <div style="width: 100%;height: 150%;position: relative;">
-        <div id="left4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-        </div>
-        <div id="left3" style="width: 49%;height:200%;float: left;background-color: white">
-        </div>
-      </div>
-    </div>
-  </div>
-  <%--//这是中间--%>
-  <div style="width: 34%;float: left;height: 650px;margin-right: -1px;" class ="div1">
-    <%--<button id="btn1"  style="">用户</button><button id="btn2" style="">4G流量</button>--%>
-    <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
-  </div>
-  <%--//这是右侧--%>
-  <div style="width: 31%;float: left;margin-left: 2em">
-
-    <div class ="div1"  style="overflow: hidden;border:2px solid;border-color: #222222;" >
-      <span style="font-size: 1.5em;">系统时间：</span><label id="show">显示时间的位置</label>
-      <div style="width: 100%;height: 100%;position: relative;">
-        <div id="right6" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-        </div>
-        <div id="right1" style="width: 49%;height:200%;float: left;background-color: white">
+    <div class="col-md-4" style="height:1.5em;">
+      <div class="row div1">
+        <div class="col-md-12 div1" style="text-align: center">
+          <span style="font-size: 1.5em;">系统时间：</span><span id="show" style="font-size: 1.5em;">显示时间的位置</span>
         </div>
       </div>
-    </div>
-    <div class ="div1"  style="overflow: hidden;" >
-      <div style="width: 100%;height: 100%;position: relative">
-        <div id="right2" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-        </div>
-        <div id="right5" style="width: 49%;height:200%;float: left;background-color: white">
-        </div>
+      <div class="row div1" style="height: 256px">
+        <div class="col-md-6 div1" id="right1"></div>
+        <div class="col-md-6 div1" id="right2"></div>
       </div>
-    </div>
-    <div class ="div1"  style="overflow: hidden;" >
-      <div style="width: 100%;height: 100%;position: relative">
-        <div id="right4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
-        </div>
-        <div id="right3" style="width: 49%;height:200%;float: left;background-color: white;">
-        </div>
+      <div class="row div1" style="height: 256px">
+        <div class="col-md-6 div1" id="right3"></div>
+        <div class="col-md-6 div1" id="right4"></div>
+      </div>
+      <div class="row div1" style="height: 256px">
+        <div class="col-md-6 div1" id="right5"></div>
+        <div class="col-md-6 div1" id="right6"></div>
       </div>
     </div>
   </div>
 </div>
-
 <script src="<%=path%>/static/js/echarts.min.js"></script>
-<script src="<%=path%>/static/js/leftOne.js"></script>
 <script src="<%=path%>/static/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例
@@ -324,6 +310,7 @@
     };
 
     leftChart1.setOption(option1);
+    window.onresize = leftChart1.resize;
     // 基于准备好的dom，初始化echarts实例
     var leftChart2 = echarts.init(document.getElementById('left2'));
     // 使用刚指定的配置项和数据显示图表。
@@ -407,10 +394,12 @@
         ]
     };
     leftChart2.setOption(option5);
+    window.onresize = leftChart2.resize;
     // 基于准备好的dom，初始化echarts实例
     var leftChart3 = echarts.init(document.getElementById('left3'));
     // 使用刚指定的配置项和数据显示图表。
     leftChart3.setOption(option3);
+    window.onresize = leftChart3.resize;
     // 基于准备好的dom，初始化echarts实例
     var leftChart4 = echarts.init(document.getElementById('left4'));
     // 使用刚指定的配置项和数据显示图表。
@@ -500,6 +489,7 @@
     };
 
     leftChart4.setOption(option4);
+    window.onresize = leftChart4.resize;
     var leftChart5 = echarts.init(document.getElementById('left5'));
     // 使用刚指定的配置项和数据显示图表。
     var option6 = {
@@ -589,7 +579,7 @@
         ]
     };
     leftChart5.setOption(option6);
-
+    window.onresize = leftChart5.resize;
 
     // 基于准备好的dom，初始化echarts实例
     var rightChart1 = echarts.init(document.getElementById('right1'));
@@ -674,6 +664,7 @@
         ]
     };
     rightChart1.setOption(option7);
+    window.onresize = rightChart1.resize;
     // 基于准备好的dom，初始化echarts实例
     var rightChart2 = echarts.init(document.getElementById('right2'));
     // 使用刚指定的配置项和数据显示图表。
@@ -750,6 +741,7 @@
         ]
     };
     rightChart2.setOption(option8);
+    window.onresize = rightChart2.resize;
     // 基于准备好的dom，初始化echarts实例
     var rightChart3 = echarts.init(document.getElementById('right3'));
     // 使用刚指定的配置项和数据显示图表。
@@ -826,6 +818,7 @@
         ]
     };
     rightChart3.setOption(option9);
+    window.onresize = rightChart3.resize;
     // 基于准备好的dom，初始化echarts实例
     var rightChart4 = echarts.init(document.getElementById('right4'));
     // 使用刚指定的配置项和数据显示图表。
@@ -902,6 +895,7 @@
         ]
     };
     rightChart4.setOption(option10);
+    window.onresize = rightChart4.resize;
     var rightChart5 = echarts.init(document.getElementById('right5'));
     // 使用刚指定的配置项和数据显示图表。
     var option11 =  {
@@ -976,6 +970,7 @@
         ]
     };
     rightChart5.setOption(option11);
+    window.onresize = rightChart5.resize;
     // 基于准备好的dom，初始化echarts实例
     // 指定图表的配置项和数据
 
@@ -1053,13 +1048,10 @@
     var rightChart6 = echarts.init(document.getElementById('right6'));
     // 使用刚指定的配置项和数据显示图表。
     rightChart6.setOption(option12);
+    window.onresize = rightChart6.resize;
     $(function(){
         heatmapOverlay.show();
     });
-    window.onresize = function () {
-        myChart.resize(); //使第一个图表适应
-        myChart_pieMain.resize(); // 使第二个图表适应
-    }
 </script>
 <script>
     $(function () {

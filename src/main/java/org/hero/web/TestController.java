@@ -62,6 +62,8 @@ public class TestController {
         model.addAttribute("list",list);
         model.addAttribute("name","路南区");
         return "showPicture";
+        //        return "kkkkk";
+
     }
     @ResponseBody
     @RequestMapping("/list")
