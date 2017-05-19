@@ -18,7 +18,11 @@ public class QunSummary {
     private float VedioStopRate;
     private float MessageRate;
     private float GameRate;
-    private Date Time;
+    private String Time;
+    private Integer flow;//某小区某类型当天流量综合
+    private Integer num;//小区当天流量综合
+    private Integer nflow;//某小区某类型当天流量综合
+    private Integer nnum;//小区当天流量综合
 
     @Override
     public String toString() {
@@ -36,8 +40,13 @@ public class QunSummary {
                 ", MessageRate=" + MessageRate +
                 ", GameRate=" + GameRate +
                 ", Time='" + Time + '\'' +
+                ", flow=" + flow +
+                ", num=" + num +
+                ", nflow=" + nflow +
+                ", nnum=" + nnum +
                 '}';
     }
+
     public Integer getId() {
         return id;
     }
@@ -134,11 +143,43 @@ public class QunSummary {
         GameRate = gameRate;
     }
 
-    public Date getTime() {
+    public String getTime() {
         return Time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         Time = time;
+    }
+
+    public Integer getFlow() {
+        return flow;
+    }
+
+    public void setFlow(Integer flow) {
+        this.flow = flow;
+    }
+
+    public Integer getNum() {
+        return num;
+    }
+
+    public void setNum(Integer num) {
+        this.num = num;
+    }
+
+    public Integer getNflow() {
+        return nflow;
+    }
+
+    public void setNflow(Integer nflow) {
+        this.nflow = nflow;
+    }
+
+    public Integer getNnum() {
+        return nnum;
+    }
+
+    public void setNnum(Integer nnum) {
+        this.nnum = nnum;
     }
 }

@@ -53,6 +53,7 @@
     <insert id="saveCommunityInformation" parameterType="org.hero.entity.CommunityInformation">
         insert into dbo.communityInformation(
         id,
+        ENodeBID,
         CellID,
         Longitude,
         Latitude,
@@ -61,6 +62,7 @@
         Azimuth
         )values(
         #{id},
+        #{ENodeBID},
         #{CellID},
         #{Longitude},
         #{Latitude},
@@ -102,11 +104,55 @@
         ORDER BY [Time] DESC
     </select>
 
+    <select id="findweek" resultType="org.hero.entity.QunSummary">
+        SELECT TOP 7
+        sum(SumUsers) AS SumUsers,
+        sum(ProtocolFlow) AS ProtocolFlow,
+        AVG(PageOpenRate) AS PageOpenRate,
+        AVG(PageRate) AS PageRate,
+        AVG(VedioDownRate) AS VedioDownRate,
+        AVG(VedioStopRate) AS VedioStopRate,
+        AVG(MessageRate) AS MessageRate,
+        AVG(GameRate) AS GameRate,
+        convert(varchar(5),[Time],105) AS [Time]
+        FROM qunSummary
+        GROUP BY convert(varchar(5),[Time],105)
+        ORDER BY [Time] DESC
+    </select>
+
     <!--查询小区的流量和人数-->
     <select id="selectNum" resultType="UploadData">
         SELECT  SumUsers,SumFlow,Longitude,Latitude
-         FROM uploadData uda
-         inner join dbo.communityInformation com on com.CellID = uda.CellID
+        FROM uploadData uda
+        inner join dbo.communityInformation com on com.CellID = uda.CellID
+        and com.ENodeBID=uda.ENodeBID
     </select>
-
+    <!--柱状图-->
+    <select id="selectZhu" resultType="UploadData">
+        select  TOP 7 SUM(SumFlow) AS Flow,ENodeBID,CellID
+        FROM uploadData
+        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
+        GROUP BY ENodeBID,CellID
+        ORDER BY Flow DESC
+    </select>
+    <!--柱状图对应的小区-->
+    <select id="selectName" resultType="Hierarchy" parameterType="java.util.Map">
+        SELECT CellName
+        FROM hierarchy
+        WHERE ENodeBID = #{eNodeBID}
+        AND CellID = #{CellID}
+    </select>
+    <!--业务类型数量比(饼图) 业务类型流量比(饼图)-->
+    <select id="selectCake" resultType="QunSummary">
+        select SUM(ProtocolFlow) flow,SUM(ProtocolNumber) num,ProtocolType
+        FROM qunSummary
+        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
+        GROUP BY ProtocolType
+    </select>
+    <!--业务类型数量比(饼图)总数-->
+    <select id="selectAll" resultType="QunSummary">
+        select SUM(ProtocolFlow) nflow,SUM(ProtocolNumber) nnum
+        FROM qunSummary
+        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
+    </select>
 </mapper>

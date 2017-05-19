@@ -4,6 +4,7 @@ import org.hero.entity.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuzhongyao on 16/8/1.
@@ -28,4 +29,11 @@ public interface NewsDao {
     List<QunSummary> findSix();
 
     List<UploadData> selectNum();
+    //获得周数据
+    List<QunSummary> findweek();
+    //    饼图查询
+    List<QunSummary> selectCake();
+    List<QunSummary> selectAll();
+    List<UploadData> selectZhu();
+    List<Hierarchy> selectName(Map map);
 }

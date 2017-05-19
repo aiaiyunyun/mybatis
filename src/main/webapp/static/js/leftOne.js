@@ -216,7 +216,7 @@ var option3 = {
 // 指定图表的配置项和数据
 var option4 = {
     title : {
-        text: '某站点用户访问来源',
+        text: '4G业务类型流量占比',
         x:'center',
         textStyle: {
             fontSize: 4,
@@ -304,87 +304,11 @@ var option4 = {
     ]
 };
 
-var option5 =  {
-    title : {
-        text: 'Top小区流量展示',
-        x:'center',
-        textStyle: {
-            fontSize: 4,
-            color: 'white'          // 主标题文字颜色
-        }
-    },
-    tooltip : {
-        trigger: 'axis'
-    },
-    toolbox: {
-        show : true,
-        feature : {
-            mark : {show: true},
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    calculable : true,
-    xAxis : [
-        {
-            type : 'category',
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            axisLine:{
-                lineStyle:{
-                    color:'#fff',
-                    width:1//这里是为了突出显示加上的，可以去掉
-                }
-            },
-            data : ['1','2','3','4','5','6','7','8']
-        }
-    ],
-    yAxis : [
-        {
-            axisLabel: {
-                show: true,
-                textStyle: {
-                    color: '#fff'
-                }
-            },
-            axisLine:{
-                lineStyle:{
-                    color:'#fff',
-                    width:1//这里是为了突出显示加上的，可以去掉
-                }
-            },
-            type : 'value'
-        }
-    ],
-    series : [
-        {
-            name:'流量',
-            type:'bar',
-            data:[2.0, 4.9, 7.0, 23.2, 25.6, 76.7, 135.6],
-            markPoint : {
-                data : [
-                    {type : 'max', name: '最大值'},
-                    {type : 'min', name: '最小值'}
-                ]
-            },
-            markLine : {
-                data : [
-                    {type : 'average', name: '平均值'}
-                ]
-            }
-        }
-    ]
-};
+
 
 var option6 = {
     title : {
-        text: '某站点用户访问来源',
+        text: '4G业务类型数量占比',
         x:'center',
         textStyle: {
             fontSize: 4,

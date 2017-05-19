@@ -38,8 +38,8 @@
       font-size: 12px;
     }
     div{
-      border:1.3px solid white;
-      border-style:inset;
+      border:1.3px solid #212121;
+      border-style:inset
       /*background:#f0fbeb*/
     }
     /*.div1{
@@ -52,87 +52,81 @@
   </style>
 </head>
 
-<body onload="setInterval('scroll()',second)">
-<div class="container" style="width: 100%;height: 768px">
-  <div class="row">
-    <div class="col-md-12" style="text-align: center"> <h2>——${name}4G流量实时分析——</h2></div>
+<body onload="setInterval('scroll()',second)" class="fixed-sidebar full-height-layout gray-bg">
+<div id="wrapper" style="margin: 0 auto;position: relative">
+  <div style="text-align: center;height: 100%;width: 100%">
+    <h2>——${name}4G流量实时分析——</h2>
   </div>
-  <div class="row">
-    <div class="col-md-4">
-      <div class="row">
-            <div class="col-md-6">
-              <span style="font-size: 1em;">4G实时用户数：</span>
-              <span id="my1" style="font-size: 1.3em;color: white">0</span>
-            </div>
-            <div class="col-md-6">
-              <span style="font-size: 1em;">4G实时流量：</span>
-              <span id="my2" style="font-size: 1.3em;color: white">0</span>
-            </div>
-      </div>
-      <div class="row"  style="height: 256px">
-          <div id="left1"  class="col-md-12">
-        </div>
-      </div>
-      <div class="row"  style="height: 256px">
-        <div id="left2"  class="col-md-6">
-        </div>
-        <div id="left5"  class="col-md-6">
-        </div>
-      </div>
-      <div class="row"  style="height: 256px">
-        <div id="left4"  class="col-md-6">
-        </div>
-        <div id="left6"  class="col-md-6">
+
+  <%--//这是左侧--%>
+  <div style="width: 31%;height:100%;float: left;" id="leftfont">
+    <div  style="overflow: hidden;margin-bottom: 0px">
+      <div style="width: 100%;height: 58%;position: relative">
+        <span style="font-size: 1.5em;">4G实时用户数：</span>
+        <span id="my1" style="font-size: 2em;color: white">0</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="font-size: 1.5em;">4G实时流量：</span>
+        <span id="my2" style="font-size: 2em;color: white">0</span>
+        <div id="left1" style="width: 100%;height:200%;float: left;background-color: white;">
         </div>
       </div>
     </div>
-    <div class="col-md-4" >
-      <div class="row">
-        <iframe class="J_iframe" name="iframe0" width="200%" height="750px" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
+    <div  style="overflow: hidden;">
+      <div style="width: 100%;height: 100%;position: relative;">
+        <div id="left2" style="width: 50%;height:200%;float: left;background-color: white">
+        </div>
+        <div id="left5" style="width: 49%;height:200%;float: left;background-color: white;">
+        </div>
+
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="row">
-        <div class="col-md-12" style="text-align: center">
-          <span style="font-size: 1.5em;">系统时间：</span><label id="show">显示时间的位置</label>
+    <div  style="overflow: hidden" class ="div1">
+      <div style="width: 100%;height: 150%;position: relative;">
+        <div id="left4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="left3" style="width: 49%;height:200%;float: left;background-color: white">
         </div>
       </div>
-      <div class="row" style="height: 230px">
-        <div class="col-md-6" id="right1"></div>
-        <div class="col-md-6" id="right2"></div>
+    </div>
+  </div>
+  <%--//这是中间--%>
+  <div style="width: 34%;float: left;height: 650px;margin-right: -1px;" class ="div1">
+    <%--<button id="btn1"  style="">用户</button><button id="btn2" style="">4G流量</button>--%>
+    <iframe class="J_iframe" name="iframe0" width="105%" height="100%" src="<%=path%>/showMiddle" frameborder="0" data-id="<%=path%>/index/saleput" seamless></iframe>
+  </div>
+  <%--//这是右侧--%>
+  <div style="width: 31%;float: left;margin-left: 2em">
+
+    <div class ="div1"  style="overflow: hidden;border:2px solid;border-color: #222222;" >
+      <span style="font-size: 1.5em;">系统时间：</span><label id="show">显示时间的位置</label>
+      <div style="width: 100%;height: 100%;position: relative;">
+        <div id="right6" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right1" style="width: 49%;height:200%;float: left;background-color: white">
+        </div>
       </div>
-      <div class="row" style="height: 230px">
-        <div class="col-md-6" id="right3"></div>
-        <div class="col-md-6" id="right4"></div>
+    </div>
+    <div class ="div1"  style="overflow: hidden;" >
+      <div style="width: 100%;height: 100%;position: relative">
+        <div id="right2" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right5" style="width: 49%;height:200%;float: left;background-color: white">
+        </div>
       </div>
-      <div class="row" style="height: 230px">
-        <div class="col-md-6" id="right5"></div>
-        <div class="col-md-6" id="right6"></div>
+    </div>
+    <div class ="div1"  style="overflow: hidden;" >
+      <div style="width: 100%;height: 100%;position: relative">
+        <div id="right4" style="width: 50%;height:200%;float: left;background-color: white;margin-left: 1px">
+        </div>
+        <div id="right3" style="width: 49%;height:200%;float: left;background-color: white;">
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script src="<%=path%>/static/js/echarts.min.js"></script>
-<%--<script src="<%=path%>/static/js/leftOne.js"></script>--%>
+<script src="<%=path%>/static/js/leftOne.js"></script>
 <script src="<%=path%>/static/js/jquery-3.2.0.min.js"></script>
 <script type="text/javascript">
     // 基于准备好的dom，初始化echarts实例

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuzhongyao on 16/8/2.
@@ -42,12 +43,32 @@ public class UserServiceImpl implements UserService {
         return newsDao.findAllNum();
     }
 
+    public List<QunSummary> findweek() {
+        return newsDao.findweek();
+    }
+
     public List<QunSummary> findSix() {
         return newsDao.findSix();
     }
 
     public List<UploadData> selectNum() {
         return newsDao.selectNum();
+    }
+
+    public List<QunSummary> selectCake() {
+        return newsDao.selectCake();
+    }
+
+    public List<QunSummary> selectAll() {
+        return newsDao.selectAll();
+    }
+
+    public List<UploadData> selectZhu() {
+        return newsDao.selectZhu();
+    }
+
+    public List<Hierarchy> selectName(Map map) {
+        return newsDao.selectName(map);
     }
 
 }

@@ -5,6 +5,7 @@ package org.hero.entity;
  */
 public class CommunityInformation {
     private Integer id;
+    private Integer ENodeBID;
     private Integer CellID;
     private float  Longitude;
     private float  Latitude;
@@ -12,11 +13,11 @@ public class CommunityInformation {
     private Integer PCI;
     private Integer Azimuth;
 
-
     @Override
     public String toString() {
         return "CommunityInformation{" +
                 "id=" + id +
+                ", ENodeBID=" + ENodeBID +
                 ", CellID=" + CellID +
                 ", Longitude=" + Longitude +
                 ", Latitude=" + Latitude +
@@ -32,6 +33,14 @@ public class CommunityInformation {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public Integer getENodeBID() {
+        return ENodeBID;
+    }
+
+    public void setENodeBID(Integer ENodeBID) {
+        this.ENodeBID = ENodeBID;
     }
 
     public Integer getCellID() {

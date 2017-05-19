@@ -8,16 +8,9 @@ public class UploadData {
     private Integer SumFlow;
     private float Longitude;
     private float Latitude;
-
-    @Override
-    public String toString() {
-        return "UploadData{" +
-                "SumUsers=" + SumUsers +
-                ", SumFlow=" + SumFlow +
-                ", Longitude=" + Longitude +
-                ", Latitude=" + Latitude +
-                '}';
-    }
+    private String ENodeBID;
+    private String CellID;
+    private Integer Flow;
 
     public Integer getSumUsers() {
         return SumUsers;
@@ -49,5 +42,42 @@ public class UploadData {
 
     public void setLatitude(float latitude) {
         Latitude = latitude;
+    }
+
+    public String getENodeBID() {
+        return ENodeBID;
+    }
+
+    public void setENodeBID(String ENodeBID) {
+        this.ENodeBID = ENodeBID;
+    }
+
+    public String getCellID() {
+        return CellID;
+    }
+
+    public void setCellID(String cellID) {
+        CellID = cellID;
+    }
+
+    public Integer getFlow() {
+        return Flow;
+    }
+
+    public void setFlow(Integer flow) {
+        Flow = flow;
+    }
+
+    @Override
+    public String toString() {
+        return "UploadData{" +
+                "SumUsers=" + SumUsers +
+                ", SumFlow=" + SumFlow +
+                ", Longitude=" + Longitude +
+                ", Latitude=" + Latitude +
+                ", ENodeBID='" + ENodeBID + '\'' +
+                ", CellID='" + CellID + '\'' +
+                ", Flow=" + Flow +
+                '}';
     }
 }

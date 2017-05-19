@@ -81,6 +81,7 @@ public class NewsDaoTest {
 
                     Integer oo = Integer.valueOf(kk.substring(kk.length()-1,kk.length()));
                     communityInformation.setId(num3);
+                    communityInformation.setENodeBID(bb);
                     communityInformation.setCellID(cc);
                     communityInformation.setLatitude(nn);
                     communityInformation.setLongitude(mm);

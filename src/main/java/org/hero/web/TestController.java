@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by xuzhongyao on 16/8/2.
@@ -77,17 +75,49 @@ public class TestController {
         list0.add(time);
         return list0;
     }
-//    @ResponseBody
-/*    @RequestMapping("/mlist")
-    public List<QunSummary> list(ModelMap modelMap) {
-        List<QunSummary> list = userService.findSix();
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        String time = sdf.format(date);
-        ArrayList list0  = new ArrayList();
-        list0.add(list);
-        list0.add(time);
-        return list0;
-    }*/
+    @ResponseBody
+   @RequestMapping("/mlist")
+    public List<UploadData> mlist(ModelMap modelMap) {
+        List<UploadData> list = userService.selectNum();
+        for(UploadData uploadData:list){
+            System.out.println(uploadData);
+        }
+        return list;
+    }
+    @ResponseBody
+    @RequestMapping("/findweek")
+    public List<QunSummary> findweek(ModelMap modelMap) {
+        List<QunSummary> list = userService.findweek();
+        return list;
+    }
 
+    @ResponseBody
+    @RequestMapping("/findcake")
+    public List<QunSummary> findcake(ModelMap modelMap) {
+        List<QunSummary> list = userService.selectCake();
+        return list;
+    }
+    @ResponseBody
+    @RequestMapping("/findzhu")
+    public List<UploadData>  findzhu(ModelMap modelMap) {
+        List<UploadData>  list = userService.selectZhu();
+        ArrayList list1 = new ArrayList();
+        ArrayList list2  = new ArrayList();
+        for (UploadData uploadData:list){
+            String  eNodeBID=uploadData.getENodeBID();
+            String CellID = uploadData.getCellID();
+            Map map=new HashMap();
+            map.put("eNodeBID",eNodeBID);
+            map.put("CellID",CellID);
+            List<Hierarchy> list4 = userService.selectName(map);
+            for(Hierarchy hierarchy:list4){
+                list2.add(hierarchy.getCellName());
+            }
+        }
+        list1.add(list);
+        System.out.println(list);
+        list1.add(list2);
+        System.out.println(list1);
+        return list1;
+    }
 }

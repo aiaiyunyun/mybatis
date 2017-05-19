@@ -4,6 +4,7 @@ import org.hero.entity.*;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by xuzhongyao on 16/8/2.
@@ -24,7 +25,12 @@ public interface UserService {
      */
     Integer findAllNum();
 
-
+    List<QunSummary> findweek();
     List<QunSummary> findSix();
     List<UploadData> selectNum();
+
+    List<QunSummary> selectCake();
+    List<QunSummary> selectAll();
+    List<UploadData> selectZhu();
+    List<Hierarchy> selectName(Map map);
 }

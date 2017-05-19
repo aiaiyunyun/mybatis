@@ -9,6 +9,7 @@
 <head>
     <!-- 引入 echarts.js -->
     <script src="<%=path%>/static/js/echarts.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE">
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=rR137ElWogTtA8I7MRD1eumladqqg3GO"></script>
     <script type="text/javascript" src="/static/js/heatmap.min.js"></script>
     <title>热力图功能示例</title>
@@ -36,11 +37,33 @@
     <div id="container"></div>
 </div>
 <script src="<%=path%>/static/js/jquery-3.2.0.min.js"></script>
-<script src="<%=path%>/static/js/map.js"></script>
+<%--<script src="<%=path%>/static/js/map.js"></script>--%>
 <script src="<%=path%>/static/js/echarts.js"></script>
 <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=glPyYQsTkNN6GaZRwAQKZMTR00eMi7ih"></script>
 <script type="text/javascript">
+    var arr1=[];
     var array = [];
+    $(function () {
+        getList();
+
+    })
+    function getList() {
+        $.ajax({
+            url:"/mlist",
+            cache:false,
+            async: false,
+            success: function(data){
+                for (var m = 0; m < data.length; m++) {
+                    var obj = new Object();
+                    obj["lng"] = data[m].longitude;
+                    obj["lat"] = data[m].latitude;
+                    obj["count"] = data[m].sumUsers;
+                    arr1[m] = obj;
+                    console.log(arr1)
+                }
+            }
+        })
+    }
     <c:forEach items="${list}" var="lsit">
     var obj = {};
     obj['Longitude'] = '${lsit.longitude}';
@@ -48,33 +71,23 @@
     obj['Azimuth'] = '${lsit.azimuth}';
     array.push(obj)
     </c:forEach>
-
-    //console.log(array)
-
     // 百度地图API功能
     var map = new BMap.Map("container");          // 创建地图实例
-
     var point = new BMap.Point(118.167163,39.603419);
     map.centerAndZoom(point, 13);             // 初始化地图，设置中心点坐标和地图级别
     map.enableScrollWheelZoom(); // 允许滚轮缩放
-
     var  mapStyle ={
         features: ["road", "building","water","land"],//隐藏地图上的poi
+//        style : "dark"  //设置地图风格为高端黑
         style : "googlelite"  //设置地图风格为高端黑
     };
-
     for(var i=0;i<array.length;i++){
         var obj = array[i];
         //alert(obj.Longitude+"==============="+obj.Latitude+"==============="+obj.Azimuth);
         sanjiao(parseFloat(obj.Longitude),parseFloat(obj.Latitude),parseInt(obj.Azimuth));
-
     }
-    /*sanjiao(118.167163,39.603419,0);//加入三角
-    sanjiao(118.167163,39.603419,90);//加入三角
-    sanjiao(118.167163,39.603419,190);//加入三角*/
     map.setMapStyle(mapStyle);
-    var points =[
-        {"lng":118.175498	,"lat":39.589363,"count":76},
+    var points = [{"lng":118.175498	,"lat":39.589363,"count":76},
         {"lng":118.15999	,"lat":39.60693,"count":24},
         {"lng":118.15999	,"lat":39.60693,"count":25},
         {"lng":118.15999	,"lat":39.60693,"count":26},
@@ -123,85 +136,7 @@
         {"lng":118.17752	,"lat":39.56929,"count":55},
         {"lng":118.17878	,"lat":39.56918,"count":81},
         {"lng":118.17878	,"lat":39.56918,"count":81},
-        {"lng":118.17878	,"lat":39.56918,"count":81},
-        {"lng":118.156333	,"lat":39.604409,"count":12},
-        {"lng":118.156333	,"lat":39.604409,"count":45},
-        {"lng":118.156333	,"lat":39.604409,"count":56},
-        {"lng":118.156333	,"lat":39.604409,"count":65},
-        {"lng":118.156333	,"lat":39.604409,"count":71},
-        {"lng":118.152441	,"lat":39.579334,"count":61},
-        {"lng":118.152441	,"lat":39.579334,"count":61},
-        {"lng":118.152441	,"lat":39.579334,"count":61},
-        {"lng":118.13955	,"lat":39.59317,"count":93},
-        {"lng":118.13955	,"lat":39.59317,"count":94},
-        {"lng":118.13955	,"lat":39.59317,"count":95},
-        {"lng":118.141946	,"lat":39.587421,"count":75},
-        {"lng":118.141946	,"lat":39.587421,"count":76},
-        {"lng":118.141946	,"lat":39.587421,"count":77},
-        {"lng":118.139545	,"lat":39.56469,"count":57},
-        {"lng":118.139545	,"lat":39.56469,"count":58},
-        {"lng":118.139545	,"lat":39.56469,"count":59},
-        {"lng":118.141946	,"lat":39.587421,"count":12},
-        {"lng":118.141946	,"lat":39.587421,"count":13},
-        {"lng":118.141946	,"lat":39.587421,"count":14},
-        {"lng":118.173393	,"lat":39.572621,"count":60},
-        {"lng":118.173393	,"lat":39.572621,"count":61},
-        {"lng":118.173393	,"lat":39.572621,"count":62},
-        {"lng":118.173393	,"lat":39.572621,"count":96},
-        {"lng":118.173393	,"lat":39.572621,"count":97},
-        {"lng":118.173393	,"lat":39.572621,"count":98},
-        {"lng":118.173393	,"lat":39.572621,"count":98},
-        {"lng":118.156153	,"lat":39.584442,"count":32},
-        {"lng":118.156153	,"lat":39.584442,"count":33},
-        {"lng":118.156153	,"lat":39.584442,"count":34},
-        {"lng":118.156153	,"lat":39.584442,"count":84},
-        {"lng":118.156153	,"lat":39.584442,"count":85},
-        {"lng":118.156153	,"lat":39.584442,"count":86},
-        {"lng":118.1396	    ,"lat":39.5897,"count":66},
-        {"lng":118.1396	    ,"lat":39.5897,"count":67},
-        {"lng":118.1396	    ,"lat":39.5897,"count":68},
-        {"lng":118.163002	,"lat":39.611518,"count":77},
-        {"lng":118.163002	,"lat":39.611518,"count":78},
-        {"lng":118.163002	,"lat":39.611518,"count":79},
-        {"lng":118.163002	,"lat":39.611518,"count":78},
-        {"lng":118.163002	,"lat":39.611518,"count":78},
-        {"lng":118.163002	,"lat":39.611518,"count":79},
-        {"lng":118.163002	,"lat":39.611518,"count":11},
-        {"lng":118.168845	,"lat":39.609755,"count":23},
-        {"lng":118.168845	,"lat":39.609755,"count":23},
-        {"lng":118.164289	,"lat":39.570621,"count":45},
-        {"lng":118.164289	,"lat":39.570621,"count":46},
-        {"lng":118.164289	,"lat":39.570621,"count":47},
-        {"lng":118.164289	,"lat":39.570621,"count":50},
-        {"lng":118.164289	,"lat":39.570621,"count":51},
-        {"lng":118.164289	,"lat":39.570621,"count":52},
-        {"lng":118.164875	,"lat":39.57641,"count":27},
-        {"lng":118.164875	,"lat":39.57641,"count":28},
-        {"lng":118.164875	,"lat":39.57641,"count":29},
-        {"lng":118.164875	,"lat":39.57641,"count":45},
-        {"lng":118.164875	,"lat":39.57641,"count":49},
-        {"lng":118.164875	,"lat":39.57641,"count":50},
-        {"lng":118.169218	,"lat":39.580564,"count":15},
-        {"lng":118.169218	,"lat":39.580564,"count":16},
-        {"lng":118.162	    ,"lat":39.5972,"count":69},
-        {"lng":118.162	    ,"lat":39.5972,"count":70},
-        {"lng":118.162	    ,"lat":39.5972,"count":71},
-        {"lng":118.152441	,"lat":39.579334,"count":23},
-        {"lng":118.152441	,"lat":39.579334,"count":24},
-        {"lng":118.152441	,"lat":39.579334,"count":25},
-        {"lng":118.162	    ,"lat":39.5972,"count":63},
-        {"lng":118.162	    ,"lat":39.5972,"count":64},
-        {"lng":118.162	    ,"lat":39.5972,"count":65},
-        {"lng":118.15999	,"lat":39.60693,"count":80},
-        {"lng":118.15999	,"lat":39.60693,"count":81},
-        {"lng":118.15999	,"lat":39.60693,"count":82},
-        {"lng":118.139545	,"lat":39.56469,"count":42},
-        {"lng":118.139545	,"lat":39.56469,"count":43},
-        {"lng":118.139545	,"lat":39.56469,"count":44},
-        {"lng":118.173199	,"lat":39.607252,"count":55},
-        {"lng":118.173199	,"lat":39.607252,"count":56},
-        {"lng":118.173199	,"lat":39.607252,"count":57}
-    ]
+        {"lng":118.17878	,"lat":39.56918,"count":81}];
     if(!isSupportCanvas()){
         alert('热力图目前只支持有canvas支持的浏览器,您所使用的浏览器不能使用热力图功能~')
     }
