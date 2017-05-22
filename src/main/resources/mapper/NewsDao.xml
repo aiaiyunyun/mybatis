@@ -131,7 +131,6 @@
     <select id="selectZhu" resultType="UploadData">
         select  TOP 7 SUM(SumFlow) AS Flow,ENodeBID,CellID
         FROM uploadData
-        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
         GROUP BY ENodeBID,CellID
         ORDER BY Flow DESC
     </select>
@@ -146,13 +145,11 @@
     <select id="selectCake" resultType="QunSummary">
         select SUM(ProtocolFlow) flow,SUM(ProtocolNumber) num,ProtocolType
         FROM qunSummary
-        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
         GROUP BY ProtocolType
     </select>
     <!--业务类型数量比(饼图)总数-->
     <select id="selectAll" resultType="QunSummary">
         select SUM(ProtocolFlow) nflow,SUM(ProtocolNumber) nnum
         FROM qunSummary
-        WHERE CONVERT(varchar, getdate(), 110 ) = CONVERT(varchar, time, 110)
     </select>
 </mapper>
