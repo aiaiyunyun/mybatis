@@ -1,15 +1,15 @@
 package org.hero.entity;
 
-import java.util.Date;
-
 /**
- * Created by lsd on 2017-05-18.
+ * Created by lsd on 2017-05-23.
  */
-public class QunSummary {
+public class ZhanSummary {
     private Integer id;
+    private String  ENodeBID;
     private Integer SumUsers;
-    private float   SumFlow;
-    private String ProtocolType;
+    private float SumFlow;
+    private String  Time;
+    private String  ProtocolType;
     private Integer ProtocolNumber;
     private float   ProtocolFlow;
     private float   PageOpenRate;
@@ -18,19 +18,16 @@ public class QunSummary {
     private float   VedioStopRate;
     private float   MessageRate;
     private float   GameRate;
-    private String  Time;
-    private Integer flow;//某小区某类型当天流量综合
-    private Integer num;//小区当天流量综合
-    private Integer nflow;//某小区某类型当天流量综合
-    private Integer nnum;//小区当天流量综合
 
     @Override
     public String toString() {
-        return "QunSummary{" +
+        return "ZhanSummary{" +
                 "id=" + id +
+                ", ENodeBID='" + ENodeBID + '\'' +
                 ", SumUsers=" + SumUsers +
                 ", SumFlow=" + SumFlow +
-                ", ProtocolType=" + ProtocolType +
+                ", Time='" + Time + '\'' +
+                ", ProtocolType='" + ProtocolType + '\'' +
                 ", ProtocolNumber=" + ProtocolNumber +
                 ", ProtocolFlow=" + ProtocolFlow +
                 ", PageOpenRate=" + PageOpenRate +
@@ -39,11 +36,6 @@ public class QunSummary {
                 ", VedioStopRate=" + VedioStopRate +
                 ", MessageRate=" + MessageRate +
                 ", GameRate=" + GameRate +
-                ", Time='" + Time + '\'' +
-                ", flow=" + flow +
-                ", num=" + num +
-                ", nflow=" + nflow +
-                ", nnum=" + nnum +
                 '}';
     }
 
@@ -53,6 +45,14 @@ public class QunSummary {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getENodeBID() {
+        return ENodeBID;
+    }
+
+    public void setENodeBID(String ENodeBID) {
+        this.ENodeBID = ENodeBID;
     }
 
     public Integer getSumUsers() {
@@ -69,6 +69,14 @@ public class QunSummary {
 
     public void setSumFlow(float sumFlow) {
         SumFlow = sumFlow;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 
     public String getProtocolType() {
@@ -141,45 +149,5 @@ public class QunSummary {
 
     public void setGameRate(float gameRate) {
         GameRate = gameRate;
-    }
-
-    public String getTime() {
-        return Time;
-    }
-
-    public void setTime(String time) {
-        Time = time;
-    }
-
-    public Integer getFlow() {
-        return flow;
-    }
-
-    public void setFlow(Integer flow) {
-        this.flow = flow;
-    }
-
-    public Integer getNum() {
-        return num;
-    }
-
-    public void setNum(Integer num) {
-        this.num = num;
-    }
-
-    public Integer getNflow() {
-        return nflow;
-    }
-
-    public void setNflow(Integer nflow) {
-        this.nflow = nflow;
-    }
-
-    public Integer getNnum() {
-        return nnum;
-    }
-
-    public void setNnum(Integer nnum) {
-        this.nnum = nnum;
     }
 }

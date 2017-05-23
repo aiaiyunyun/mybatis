@@ -30,6 +30,45 @@
             #{Azimuth}
             )
     </insert>
+    <select id="finduploadData"  resultType="int" >
+        select COUNT (*) from uploadData
+    </select>
+    <!--保存update信息-->
+    <insert id="saveUploadData" parameterType="org.hero.entity.UploadData">
+        insert into uploadData(
+        id,
+        PageOpenRate,
+        PageRate,
+        VedioDownRate,
+        VedioStopRate,
+        MessageRate,
+        GameRate,
+        Time,
+        ProtocolType,
+        ProtocolNumber,
+        ProtocolFlow,
+        SumUsers,
+        SumFlow,
+        ENodeBID,
+        CellID
+        )values(
+        #{id},
+        #{PageOpenRate},
+        #{PageRate},
+        #{VedioDownRate},
+        #{VedioStopRate},
+        #{MessageRate},
+        #{GameRate},
+        #{Time},
+        #{ProtocolType},
+        #{ProtocolNumber},
+        #{ProtocolFlow},
+        #{SumUsers},
+        #{SumFlow},
+        #{ENodeBID},
+        #{CellID}
+        )
+    </insert>
     <!--保存基站信息-->
     <insert id="saveStationInformation" parameterType="org.hero.entity.StationInformation">
         insert into dbo.stationInformation(
@@ -48,7 +87,40 @@
         #{Supplier}
         )
     </insert>
-
+<!--保存saveZhanSummary-->
+    <insert id="saveZhanSummary" parameterType="org.hero.entity.ZhanSummary">
+        insert into dbo.zhanSummary(
+        id,
+        ENodeBID,
+        SumUsers,
+        SumFlow,
+        Time,
+        ProtocolType,
+        ProtocolNumber,
+        ProtocolFlow,
+        PageOpenRate,
+        PageRate,
+        VedioDownRate,
+        VedioStopRate,
+        MessageRate,
+        GameRate
+        )values(
+        #{id},
+        #{ENodeBID},
+        #{SumUsers},
+        #{SumFlow},
+        #{Time},
+        #{ProtocolType},
+        #{ProtocolNumber},
+        #{ProtocolFlow},
+        #{PageOpenRate},
+        #{PageRate},
+        #{VedioDownRate},
+        #{VedioStopRate},
+        #{MessageRate},
+        #{GameRate}
+        )
+    </insert>
     <!--保存小区信息-->
     <insert id="saveCommunityInformation" parameterType="org.hero.entity.CommunityInformation">
         insert into dbo.communityInformation(
@@ -71,11 +143,56 @@
         #{Azimuth}
         )
     </insert>
+    <insert id="saveQuSummary" parameterType="org.hero.entity.QunSummary">
+        insert into dbo.QunSummary(
+        id,
+        SumUsers,
+        SumFlow,
+        ProtocolType,
+        ProtocolNumber,
+        ProtocolFlow,
+        PageOpenRate,
+        PageRate,
+        VedioDownRate,
+        VedioStopRate,
+        MessageRate,
+        GameRate,
+        Time
+        )values(
+        #{id},
+        #{SumUsers},
+        #{SumFlow},
+        #{ProtocolType},
+        #{ProtocolNumber},
+        #{ProtocolFlow},
+        #{PageOpenRate},
+        #{PageRate},
+        #{VedioDownRate},
+        #{VedioStopRate},
+        #{MessageRate},
+        #{GameRate},
+        #{Time}
+        )
+    </insert>
     <select id="findAllHierarchy" resultType="Hierarchy">
         select * from hierarchy
     </select>
     <select id="findAllCommunityInformation" resultType="CommunityInformation">
         select  * from  communityInformation
+    </select>
+    <select id="finAll" resultType="ZhanSummary">
+        select ENodeBID,SUM(SumUsers) SumUsers,SUM(SumFlow) SumFlow,SUM(ProtocolNumber) ProtocolNumber,SUM(ProtocolFlow) ProtocolFlow,
+        avg(PageOpenRate) PageOpenRate, avg(PageRate) PageRate,avg(VedioDownRate) VedioDownRate,avg(VedioStopRate) VedioStopRate,
+        avg(MessageRate) MessageRate,avg(GameRate) GameRate,time,ProtocolType
+        from uploadData
+        group by  ENodeBID,ProtocolType,time
+    </select>
+    <select id="selectQu" resultType="ZhanSummary">
+        select SUM(SumUsers) SumUsers,SUM(SumFlow) SumFlow,SUM(ProtocolNumber) ProtocolNumber,SUM(ProtocolFlow) ProtocolFlow,
+        avg(PageOpenRate) PageOpenRate, avg(PageRate) PageRate,avg(VedioDownRate) VedioDownRate,avg(VedioStopRate) VedioStopRate,
+        avg(MessageRate) MessageRate,avg(GameRate) GameRate,time,ProtocolType
+        from zhanSummary
+        group by  ProtocolType,time
     </select>
     <select id="findAllStationInformation" resultType="StationInformation">
         select Distinct stf.*,hi.eNodeBName from StationInformation stf
@@ -83,6 +200,12 @@
     </select>
     <select id="findAllNum"  resultType="int" >
         select COUNT (*) from hierarchy
+    </select>
+    <select id="selectNumb"  resultType="int">
+        select COUNT (*) from ZhanSummary
+    </select>
+    <select id="selectNumZ"  resultType="int">
+        select COUNT (*) from QunSummary
     </select>
     <select id="findAllNumStationInformation"  resultType="int" >
         select COUNT (*) from stationInformation
